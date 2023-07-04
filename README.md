@@ -1,57 +1,85 @@
 # Laravel ChatGPT Exam Tutor
+This is a lightweight project that inputs questions and answers through the API and answers them through the OpenAI API
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## System Requirements
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+The following are required to function properly.
 
-## Learning Laravel
+* PHP Version：PHP 8.1.x
+* Laravel Version：10.14.x
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Installation
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+* copy .env.example .env
+* composer install
+* php artisan key:generate
+* chmod -R 777 storage bootstrap/cache
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Usage
 
-## Laravel Sponsors
+### Development
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+```bash
+    php artisan serve
+    npm run dev
+```
 
-### Premium Partners
+#### If not install redis, please change .env
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+```
+    CACHE_DRIVER="file"
+    QUEUE_CONNECTION="sync"
+    SESSION_DRIVER="file"
+```
 
-## Contributing
+### Production
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+```bash
+    composer install --prefer-dist --no-dev -o
+```
 
-## Code of Conduct
+### Clear and cache
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+```optimize``` will clear and cache config, route, file
 
-## Security Vulnerabilities
+```bash
+    php artisan optimize
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### Directory Permissions
 
-## License
+```bash
+    chmod -R 777 storage bootstrap/cache
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### Storage Link
+
+```bash
+    php artisan storage:link
+```
+
+### Migrate with seeder
+
+```bash
+    php artisan migrate:fresh --seed
+```
+
+### Scribe
+
+#### Scribe and Ide Helper Generator
+
+```bash
+    composer ide-helper-gen
+```
+
+#### Only Scribe Generator
+
+```bash
+    php artisan scribe:generate
+```
+
+#### how to open api document
+
+1. run development ```php artisan serve```
+2. use browser open ```http://127.0.0.1:8000/docs```
