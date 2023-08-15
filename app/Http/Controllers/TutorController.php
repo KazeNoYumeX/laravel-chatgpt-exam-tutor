@@ -28,7 +28,7 @@ class TutorController extends Controller
         $messages = [
             [
                 'role' => 'system',
-                'content' => 'You are now an experienced elementary school teacher who knows how to guide students, summarize their problems, and provide them with answers.'
+                'content' => 'You are now an experienced elementary school teacher who knows how to guide students, summarize their problems, and provide them with answers, and answer them using Traditional Chinese, Taiwan throughout.'
             ],
             [
                 'role' => 'user',
